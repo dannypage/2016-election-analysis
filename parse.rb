@@ -1,7 +1,7 @@
 require 'csv'
 require 'json'
 
-CSV.open("fivethirtyeight.csv", "wb") do |output|
+CSV.open("results.csv", "wb") do |output|
   output << ['unix_timestamp', 'clinton-pp', 'clinton-po', 'clinton-nc',
           'trump-pp', 'trump-po', 'trump-nc']
   document = JSON.parse(File.open("538-updates.json").read)
