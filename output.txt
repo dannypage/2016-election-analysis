@@ -1,25 +1,171 @@
 --------------
 NYT Results:
-Clinton wagered: $13000
-Clinton result : $17393.05
-Clinton ROI: 10.08%
-Trump wagered: $2800
-Trump result:  $11115.66
-Trump ROI: -29.65%
+Clinton wagered: $11900
+Clinton result : $15947.53
+Clinton ROI: 31.8%
+Trump wagered: $200
+Trump result:  $654.81
+Trump ROI: -94.59%
 --------------
-FiveThirtyEight Results:
-Clinton wagered: $38400
-Clinton result : $48374.5
-Clinton ROI: -33.82%
+NYT Kelly ($100/update) Results:
+Clinton wagered: $1707
+Clinton result : $2235.92
+Clinton ROI: 30.99%
+Trump wagered: $0
+Trump result:  $0.0
+Trump ROI: -100.0%
+--------------
+NYT Kelly Bankroll Results:
+Clinton wagered: $995874
+Clinton result : $1369516.0
+Clinton ROI: 36.95%
+Trump wagered: $4123
+Trump result:  $13588.01
+Trump ROI: -98.64%
+Remaining Bankroll: 3
+--------------
+NYT Kelly Rolling Results:
+Clinton wagered: $15441
+Clinton result : $20501.56
+Clinton ROI: 32.56%
+Trump wagered: $25
+Trump result:  $82.38
+Trump ROI: -99.47%
+Remaining Bankroll: 334
+--------------
+FiveThirtyEight Polls-Only Results:
+Clinton wagered: $37500
+Clinton result : $47187.51
+Clinton ROI: -34.64%
 Trump wagered: $34700
 Trump result:  $124917.42
-Trump ROI: 70.89%
+Trump ROI: 73.02%
+--------------
+FiveThirtyEight Polls-Only Kelly ($100/update) Results:
+Clinton wagered: $3229
+Clinton result : $4051.52
+Clinton ROI: -12.61%
+Trump wagered: $1407
+Trump result:  $4758.51
+Trump ROI: 2.64%
+--------------
+FiveThirtyEight Polls-Only Kelly Bankroll Results:
+Clinton wagered: $33478
+Clinton result : $42465.67
+Clinton ROI: -95.75%
+Trump wagered: $966519
+Trump result:  $4007622.55
+Trump ROI: 300.76%
+Remaining Bankroll: 3
+--------------
+FiveThirtyEight Polls-Only Kelly Rolling Results:
+Clinton wagered: $44573
+Clinton result : $56077.86
+Clinton ROI: -19.55%
+Trump wagered: $25130
+Trump result:  $85626.61
+Trump ROI: 22.84%
+Remaining Bankroll: 3597
+--------------
+FiveThirtyEight Polls-Plus Results:
+Clinton wagered: $9300
+Clinton result : $11590.08
+Clinton ROI: -83.9%
+Trump wagered: $62700
+Trump result:  $266794.5
+Trump ROI: 270.55%
+--------------
+FiveThirtyEight Polls-Plus Kelly ($100/update) Results:
+Clinton wagered: $203
+Clinton result : $254.0
+Clinton ROI: -87.22%
+Trump wagered: $1785
+Trump result:  $6522.25
+Trump ROI: 228.08%
+--------------
+FiveThirtyEight Polls-Plus Kelly Bankroll Results:
+Clinton wagered: $13347
+Clinton result : $16664.91
+Clinton ROI: -98.33%
+Trump wagered: $986642
+Trump result:  $4102757.62
+Trump ROI: 310.28%
+Remaining Bankroll: 11
+--------------
+FiveThirtyEight Polls-Plus Kelly Rolling Results:
+Clinton wagered: $13942
+Clinton result : $17378.94
+Clinton ROI: -75.19%
+Trump wagered: $56093
+Trump result:  $226369.17
+Trump ROI: 223.22%
+Remaining Bankroll: 3265
+--------------
+FiveThirtyEight NowCast Results:
+Clinton wagered: $44500
+Clinton result : $56694.09
+Clinton ROI: -21.58%
+Trump wagered: $27800
+Trump result:  $97594.27
+Trump ROI: 34.99%
+--------------
+FiveThirtyEight NowCast Kelly ($100/update) Results:
+Clinton wagered: $6064
+Clinton result : $7688.11
+Clinton ROI: 1.52%
+Trump wagered: $1509
+Trump result:  $5000.42
+Trump ROI: -33.97%
+--------------
+FiveThirtyEight NowCast Kelly Bankroll Results:
+Clinton wagered: $19339
+Clinton result : $24296.0
+Clinton ROI: -97.57%
+Trump wagered: $980659
+Trump result:  $4058411.0
+Trump ROI: 305.84%
+Remaining Bankroll: 2
+--------------
+FiveThirtyEight NowCast Kelly Rolling Results:
+Clinton wagered: $50246
+Clinton result : $63757.62
+Clinton ROI: -10.27%
+Trump wagered: $20806
+Trump result:  $69857.5
+Trump ROI: -1.68%
+Remaining Bankroll: 2248
 --------------
 PredictWise Results:
-Clinton wagered: $133600
-Clinton result : $201843.86
-Clinton ROI: -1.35%
-Trump wagered: $71000
-Trump result:  $266223.07
-Trump ROI: 30.12%
+Clinton wagered: $56700
+Clinton result : $75679.51
+Clinton ROI: 8.27%
+Trump wagered: $13200
+Trump result:  $49177.59
+Trump ROI: -29.65%
+--------------
+PredictWise Kelly ($100/update) Results:
+Clinton wagered: $5151
+Clinton result : $6677.95
+Clinton ROI: 29.47%
+Trump wagered: $7
+Trump result:  $28.56
+Trump ROI: -99.45%
+--------------
+PredictWise Kelly Bankroll Results:
+Clinton wagered: $537971
+Clinton result : $712695.2
+Clinton ROI: -28.73%
+Trump wagered: $462026
+Trump result:  $1788509.1
+Trump ROI: 78.85%
+Remaining Bankroll: 3
+--------------
+PredictWise Kelly Rolling Results:
+Clinton wagered: $142946
+Clinton result : $189473.42
+Clinton ROI: -9.9%
+Trump wagered: $67340
+Trump result:  $260138.71
+Trump ROI: 23.71%
+Remaining Bankroll: 414
 --------------

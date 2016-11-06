@@ -4,10 +4,10 @@ How to:
 - Optional: Run "ruby download.rb" for up to date files. NYT needs a specific URL, they cache their file.
 - Optional: Run "ruby parse.rb" to turn the JSON into CSVs that can be analysed.
 - Run "ruby analyze.rb" to output results
+- Note that it analyzes updates only starting on July 8th, as to set a baseline for all models. 4 months worth should cover the core of the election.
 
 Still to do:
 - Graphs!
-- Kelly Criteron betting
 
 Data Feeds:
 - predictwise	http://table-cache1.predictwise.com/history/table_1523.json
