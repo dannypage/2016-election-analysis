@@ -1,3 +1,14 @@
+How to:
+
+- Install Ruby and a few gems.
+- Optional: Run "ruby download.rb" for up to date files. NYT needs a specific URL, they cache their file.
+- Optional: Run "ruby parse.rb" to turn the JSON into CSVs that can be analysed.
+- Run "ruby analyze.rb" to output results
+
+Still to do:
+- Graphs!
+- Kelly Criteron betting
+
 Data Feeds:
 - predictwise	http://table-cache1.predictwise.com/history/table_1523.json
 - nyt	https://static01.nyt.com/newsgraphics/2016/08/05/presidential-forecast/54c9e640a5c8d15d126d86480a2245bded598d0c/timeseries.csv

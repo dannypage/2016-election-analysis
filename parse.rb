@@ -37,8 +37,8 @@ CSV.open("predictwise.csv", "wb") do |output|
   document['history'].each do |history|
     output << {
       timestamp: Time.strptime(history['timestamp'],'%m-%d-%Y %I:%M%p'),
-      clinton: history['table'][0][1].gsub(/[^0-9.]/,""),
-      trump: history['table'][1][1].gsub(/[^0-9.]/,"")
+      clinton: history['table'][0][1].gsub(/[^0-9.]/,"").to_f/100.0,
+      trump: history['table'][1][1].gsub(/[^0-9.]/,"").to_f/100.0
     }.values
   end
 end
