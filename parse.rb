@@ -3,12 +3,12 @@ require 'json'
 require 'time'
 
 CSV.open("538-parse.csv", "wb") do |output|
-  output << ['timestamp', 'clinton-pp', 'clinton-po', 'clinton-nc',
-          'trump-pp', 'trump-po', 'trump-nc']
+  output << ['timestamp', 'clinton_pp', 'clinton_po', 'clinton_nc',
+          'trump_pp', 'trump_po', 'trump_nc']
   document = JSON.parse(File.open("538-updates.json").read)
   document['updates'].each do |update|
     output << {
-      unix_timestamp: update['added'],
+      timestamp: Time.at(update['added']),
       clinton_pp: update['diffs']['polls-plus'].find {|x| x['candidate']=='Clinton'}['winprob']['current'].to_f,
       clinton_po: update['diffs']['polls-only'].find {|x| x['candidate']=='Clinton'}['winprob']['current'].to_f,
       clinton_nc: update['diffs']['now-cast'].find   {|x| x['candidate']=='Clinton'}['winprob']['current'].to_f,
