@@ -1,0 +1,25 @@
+--------------
+NYT Results:
+Clinton wagered: $13000
+Clinton result : $17393.05
+Clinton ROI: 10.08%
+Trump wagered: $2800
+Trump result:  $11115.66
+Trump ROI: -29.65%
+--------------
+FiveThirtyEight Results:
+Clinton wagered: $38400
+Clinton result : $48374.5
+Clinton ROI: -33.82%
+Trump wagered: $34700
+Trump result:  $124917.42
+Trump ROI: 70.89%
+--------------
+PredictWise Results:
+Clinton wagered: $133600
+Clinton result : $201843.86
+Clinton ROI: -1.35%
+Trump wagered: $71000
+Trump result:  $266223.07
+Trump ROI: 30.12%
+--------------
