@@ -108,9 +108,9 @@ def analyse(updates, betfair_data, clinton_key, trump_key, timestamp_key, name)
     end
   end
 
-  output(score_card, name)
-  kelly_output(score_card, "#{name} Kelly ($100/update)", :clinton_kelly, :trump_kelly)
-  kelly_output(score_card, "#{name} Kelly Bankroll", :clinton_kelly_bankroll, :trump_kelly_bankroll)
+  #output(score_card, name)
+  #kelly_output(score_card, "#{name} Kelly ($100/update)", :clinton_kelly, :trump_kelly)
+  #kelly_output(score_card, "#{name} Kelly Bankroll", :clinton_kelly_bankroll, :trump_kelly_bankroll)
   kelly_output(score_card, "#{name} Kelly Rolling", :clinton_rolling, :trump_rolling)
 end
 
