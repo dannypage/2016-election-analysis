@@ -3,21 +3,27 @@ require 'time'
 
 puts "--------------"
 
+$date_cutoff = Time.new(2016,07,8)
+
 def kelly_bet(odds,prob,bankroll)
   kelly_fraction = 0.5
   ((((((1/odds)*prob)-1)/((1/odds)-1))*bankroll)*kelly_fraction).floor
 end
 
 def output(score, name)
+  clinton_expected = 1/1.2
+  trump_expected = 1/5.9
   clinton_wager = score[:clinton]*100
   clinton_winnings = score[:clinton_bets].map {|x| 100*(1/x) }.reduce(0, :+)
   trump_wager  =score[:trump]*100
   trump_winnings = score[:trump_bets].map {|x| 100*(1/x)}.reduce(0, :+)
   wagered = clinton_wager + trump_wager
-  clinton_roi = (clinton_winnings- wagered)/(clinton_wager+trump_wager)
-  trump_roi = (trump_winnings - wagered)/(wagered)
+  clinton_roi = (clinton_winnings- wagered)/wagered
+  trump_roi = (trump_winnings - wagered)/wagered
+  xROI = (clinton_winnings*clinton_expected + trump_winnings*trump_expected-wagered)/wagered
 
   puts "#{name} Results:"
+  puts "Current xROI: #{xROI}"
   puts "Clinton wagered: $#{clinton_wager}"
   puts "Clinton result : $#{clinton_winnings.round(2)}"
   puts "Clinton ROI: #{(clinton_roi*100).round(2)}%"
@@ -28,15 +34,19 @@ def output(score, name)
 end
 
 def kelly_output(score, name, clinton_key, trump_key)
+  clinton_expected = 0.8
+  trump_expected = 0.2
   clinton_wager = score[clinton_key].map{|x| x[:size] }.reduce(0, :+)
   clinton_winnings = score[clinton_key].map{|x| 1/x[:bet] * x[:size] }.reduce(0, :+)
   trump_wager = score[trump_key].map{|x| x[:size] }.reduce(0, :+)
   trump_winnings = score[trump_key].map{|x| 1/x[:bet] * x[:size] }.reduce(0, :+)
   wagered = clinton_wager + trump_wager
-  clinton_roi = (clinton_winnings- wagered)/(clinton_wager+trump_wager)
-  trump_roi = (trump_winnings - wagered)/(wagered)
+  clinton_roi = (clinton_winnings- wagered)/wagered
+  trump_roi = (trump_winnings - wagered)/wagered
+  xROI = (clinton_winnings*clinton_expected + trump_winnings*trump_expected-wagered)/wagered
 
   puts "#{name} Results:"
+  puts "Current xROI: #{xROI}"
   puts "Clinton wagered: $#{clinton_wager}"
   puts "Clinton result : $#{clinton_winnings.round(2)}"
   puts "Clinton ROI: #{(clinton_roi*100).round(2)}%"
@@ -66,8 +76,10 @@ def analyse(updates, betfair_data, clinton_key, trump_key, timestamp_key, name)
   updates.each do |update|
     score_card[:rolling_bankroll] += 100
     timestamp = Time.parse(update[timestamp_key])
-    next if timestamp < Time.new(2016,07,8)
+    timestamp = Time.new(timestamp.year, timestamp.month, timestamp.day, 12,0,0) if timestamp_key == :date
+    next if timestamp < $date_cutoff
     betfair = betfair_data.find { |x| x[:timestamp] >= timestamp}
+    next if betfair.nil?
     if update[clinton_key] > betfair[:clinton]
       score_card[:clinton] += 1
       score_card[:clinton_bets] << betfair[:clinton]
