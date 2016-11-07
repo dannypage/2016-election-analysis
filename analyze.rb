@@ -1,5 +1,6 @@
 require 'csv'
 require 'time'
+require 'descriptive_statistics'
 
 puts "--------------"
 
@@ -23,7 +24,8 @@ def output(score, name)
   xROI = (clinton_winnings*clinton_expected + trump_winnings*trump_expected-wagered)/wagered
 
   puts "#{name} Results:"
-  puts "Current xROI: #{(xROI*100).round(2)}%"
+  puts "Current xROI:  #{(xROI*100).round(2)}%"
+  puts "Current StDev: #{[clinton_roi, trump_roi].standard_deviation.round(2)}"
   puts "Clinton wagered: $#{clinton_wager}"
   puts "Clinton result : $#{clinton_winnings.round(2)}"
   puts "Clinton ROI: #{(clinton_roi*100).round(2)}%"
@@ -47,6 +49,7 @@ def kelly_output(score, name, clinton_key, trump_key)
 
   puts "#{name} Results:"
   puts "Current xROI: #{(xROI*100).round(2)}%"
+  puts "Current StDev: #{[clinton_roi, trump_roi].standard_deviation.round(2)}"
   puts "Clinton wagered: $#{clinton_wager}"
   puts "Clinton result : $#{clinton_winnings.round(2)}"
   puts "Clinton ROI: #{(clinton_roi*100).round(2)}%"
