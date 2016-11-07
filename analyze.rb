@@ -77,12 +77,12 @@ def analyse(updates, betfair_data, clinton_key, trump_key, timestamp_key, name)
     rolling_bankroll: 0
   }
   updates.each do |update|
-    score_card[:rolling_bankroll] += 100
     timestamp = Time.parse(update[timestamp_key])
     timestamp = Time.new(timestamp.year, timestamp.month, timestamp.day, 12,0,0) if timestamp_key == :date
     next if timestamp < $date_cutoff
     betfair = betfair_data.find { |x| x[:timestamp] >= timestamp}
     next if betfair.nil?
+    score_card[:rolling_bankroll] += 100
     if update[clinton_key] > betfair[:clinton]
       score_card[:clinton] += 1
       score_card[:clinton_bets] << betfair[:clinton]

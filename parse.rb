@@ -42,3 +42,17 @@ CSV.open("predictwise.csv", "wb") do |output|
     }.values
   end
 end
+
+CSV.open("predictwise-vs-betfair.csv", "wb") do |output|
+  output << ['timestamp', 'clinton_pw', 'trump_pw','clinton_bf','trump_bw']
+  document = JSON.parse(File.open("predictwise.json").read)
+  document['history'].each do |history|
+    output << {
+      timestamp: Time.strptime(history['timestamp'],'%m-%d-%Y %I:%M%p'),
+      clinton_pw: history['table'][0][1].gsub(/[^0-9.]/,"").to_f/100.0,
+      trump_pw: history['table'][1][1].gsub(/[^0-9.]/,"").to_f/100.0,
+      clinton_bf: history['table'][0][2].gsub(/[^0-9.]/,""),
+      trump_bw: history['table'][1][2].gsub(/[^0-9.]/,"")
+    }.values
+  end
+end
