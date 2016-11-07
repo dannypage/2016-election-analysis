@@ -23,7 +23,7 @@ def output(score, name)
   xROI = (clinton_winnings*clinton_expected + trump_winnings*trump_expected-wagered)/wagered
 
   puts "#{name} Results:"
-  puts "Current xROI: #{xROI}"
+  puts "Current xROI: #{(xROI*100).round(2)}%"
   puts "Clinton wagered: $#{clinton_wager}"
   puts "Clinton result : $#{clinton_winnings.round(2)}"
   puts "Clinton ROI: #{(clinton_roi*100).round(2)}%"
@@ -46,7 +46,7 @@ def kelly_output(score, name, clinton_key, trump_key)
   xROI = (clinton_winnings*clinton_expected + trump_winnings*trump_expected-wagered)/wagered
 
   puts "#{name} Results:"
-  puts "Current xROI: #{xROI}"
+  puts "Current xROI: #{(xROI*100).round(2)}%"
   puts "Clinton wagered: $#{clinton_wager}"
   puts "Clinton result : $#{clinton_winnings.round(2)}"
   puts "Clinton ROI: #{(clinton_roi*100).round(2)}%"
