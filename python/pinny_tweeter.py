@@ -2,9 +2,7 @@ import random
 import datetime
 import time
 import pytz
-
 import requests
-
 import twitter
 import twitter_credentials  # see example_credentials.py
 
