@@ -30,7 +30,7 @@ class PinnyTweeter:
 
     def send_pinny(self):
         ## Get the current market value from pinny
-        dt = datetime.datetime.now().replace(tzinfo=pytz.timezone('US/Eastern'))
+        dt = datetime.datetime.now(pytz.timezone('US/Eastern'))
 
         pinny_json = requests.get('https://www.pinnacle.com/webapi/1.15/api/v1/GuestLines/Contest/Politics/2016-Presidential-Election-USA').json()
         pinny_list = pinny_json['Leagues'][0]['Events'][0]['Participants']
@@ -45,6 +45,7 @@ class PinnyTweeter:
         status = ('Pinny HRC market: {pinny_clinton_bid:>2.0%} – '
                   '{pinny_clinton_offer:>2.0%}        {dt:%H:%M EST}'
                     .format(**locals()))
+        # print(status)
         self.send_tweet({'status': status})
 
     @staticmethod
