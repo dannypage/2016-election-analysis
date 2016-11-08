@@ -17,10 +17,8 @@ class PinnyTweeter:
 
     def initialize_apis(self):
         auth_list = [twitter.OAuth( *creds ) for creds in twitter_credentials.twitter_credentials]
-        
         self.api_list        = [twitter.Twitter(auth=a) for a in auth_list]
-        self.upload_api_list = [twitter.Twitter(auth=a, domain='upload.twitter.com') for a in auth_list]
-
+        
     def sleep(self):
         time.sleep(self.sleep_time)
 
