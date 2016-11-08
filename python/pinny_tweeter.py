@@ -1,16 +1,18 @@
-import time
 import random
+import datetime
+import time
+import pytz
 
 import requests
 
 import twitter
-import twitter_credentials
+import twitter_credentials  # see example_credentials.py
 
 
 class PinnyTweeter:
 
     def __init__(self):
-        self.sleep_time = 15 * 60
+        self.sleep_time = 60 * 60
         self.initialize_apis()
 
     def initialize_apis(self):
@@ -28,6 +30,8 @@ class PinnyTweeter:
 
     def send_pinny(self):
         ## Get the current market value from pinny
+        dt = datetime.datetime.now().replace(tzinfo=pytz.timezone('US/Eastern'))
+
         pinny_json = requests.get('https://www.pinnacle.com/webapi/1.15/api/v1/GuestLines/Contest/Politics/2016-Presidential-Election-USA').json()
         pinny_list = pinny_json['Leagues'][0]['Events'][0]['Participants']
         pinny_offer_dict = {el['Name']: self.convert_american_odds_to_prob(el['MoneyLine']) for el in pinny_list}
@@ -38,7 +42,9 @@ class PinnyTweeter:
         pinny_clinton_bid = 1 - pinny_trump_offer
         pinny_trump_bid = 1 - pinny_clinton_offer
 
-        status = ('Pinny HRC market: {pinny_clinton_bid:.0%} – {pinny_clinton_offer:.0%}'.format(**locals()))
+        status = ('Pinny HRC market: {pinny_clinton_bid:>2.0%} – '
+                  '{pinny_clinton_offer:>2.0%}        {dt:%H:%M EST}'
+                    .format(**locals()))
         self.send_tweet({'status': status})
 
     @staticmethod
