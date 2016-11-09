@@ -10,7 +10,7 @@ import twitter_credentials  # see example_credentials.py
 class PinnyTweeter:
 
     def __init__(self):
-        self.sleep_time = 60 * 60
+        self.sleep_time = 60 * 30
         self.initialize_apis()
 
     def initialize_apis(self):
@@ -39,7 +39,7 @@ class PinnyTweeter:
         pinny_trump_bid = 1 - pinny_clinton_offer
 
         status = ('Pinny HRC market: {pinny_clinton_bid:>2.0%} – '
-                  '{pinny_clinton_offer:>2.0%}        {dt:%H:%M EST}'
+                  '{pinny_clinton_offer:>2.0%} | {dt:%H:%M EST}'
                     .format(**locals()))
         # print(status)
         self.send_tweet({'status': status})
