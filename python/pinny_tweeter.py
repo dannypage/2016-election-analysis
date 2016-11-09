@@ -10,7 +10,15 @@ import twitter_credentials  # see example_credentials.py
 class PinnyTweeter:
 
     def __init__(self):
-        self.sleep_time = 60 * 30
+        self.sleep_time = 60 * 2
+        self.move_threshold = 0.02
+
+        self.reported_trump_offer = 0
+        self.reported_clinton_offer = 0
+
+        self.reported_trump_bid = 0
+        self.reported_clinton_bid = 0
+        
         self.initialize_apis()
 
     def initialize_apis(self):
@@ -24,7 +32,7 @@ class PinnyTweeter:
         api = random.choice(self.api_list)
         api.statuses.update(**tweet_params)
 
-    def send_pinny(self):
+    def check_pinny(self):
         ## Get the current market value from pinny
         dt = datetime.datetime.now(pytz.timezone('US/Eastern'))
 
@@ -38,11 +46,18 @@ class PinnyTweeter:
         pinny_clinton_bid = 1 - pinny_trump_offer
         pinny_trump_bid = 1 - pinny_clinton_offer
 
-        status = ('Pinny HRC market: {pinny_clinton_bid:>2.0%} – '
-                  '{pinny_clinton_offer:>2.0%} | {dt:%H:%M EST}'
-                    .format(**locals()))
-        # print(status)
-        self.send_tweet({'status': status})
+        if abs(pinny_clinton_offer - self.reported_clinton_offer) > self.move_threshold or abs(pinny_trump_offer - self.reported_trump_offer) > self.move_threshold:            
+            
+            status = ('Pinny HRC market: {pinny_clinton_bid:>2.0%} – '
+                      '{pinny_clinton_offer:>2.0%} | {dt:%H:%M EST}'
+                        .format(**locals()))
+            # print(status)
+            self.send_tweet({'status': status})
+            self.reported_clinton_bid = pinny_clinton_bid
+            self.reported_clinton_offer = pinny_clinton_bid
+
+            self.reported_trump_bid = pinny_trump_bid
+            self.reported_trump_offer = pinny_trump_offer
 
     @staticmethod
     def convert_american_odds_to_prob(american_odds):
@@ -54,5 +69,5 @@ class PinnyTweeter:
 if __name__ == '__main__':
     pinny_tweeter = PinnyTweeter()
     while True:
-        pinny_tweeter.send_pinny()
+        pinny_tweeter.check_pinny()
         pinny_tweeter.sleep()
